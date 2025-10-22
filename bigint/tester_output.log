@@ -1,0 +1,161 @@
+[0;34m🔍 Running COMPREHENSIVE TESTING for bigint[0m
+==========================================
+
+[0;34m📦 Compiling reference solution...[0m
+[0;32m✅ Reference compilation successful![0m
+
+[0;34m📦 Compiling user solution...[0m
+[0;32m✅ User compilation successful![0m
+
+[0;34m🚀 Running tests...[0m
+[DEBUG] Reference output:
+a = 42
+b = 21
+c = 0
+d = 1337
+e = 1337
+a + b = 63
+a + c = 42
+(c += a) = 42
+b = 21
+++b = 22
+b++ = 22
+(b << 10) + 42 = 230000000042
+(d <<= 4) = 13370000, d: 13370000
+(d >>= 2) = 133700, d: 133700
+a = 42
+d = 133700
+(d < a) = 0
+(d > a) = 1
+(d == d) = 1
+(d != a) = 1
+(d <= a) = 0
+(d >= a) = 1
+(x << y) = 1234567800000, x: 12345678, y: 5
+(x >>= y) = 123, x: 123, y: 5
+(x >= y) = 1, x: 123, y: 5
+x= 12300000, y= 5000000000000
+(x >= y) = 0, x: 12300000, y: 5000000000000
+[DEBUG] User output:
+a = 42
+b = 21
+c = 0
+d = 1337
+e = 1337
+a + b = 63
+a + c = 42
+(c += a) = 42
+b = 21
+++b = 22
+b++ = 22
+(b << 10) + 42 = 230000000042
+(d <<= 4) = 13370000, d: 13370000
+(d >>= 2) = 370000, d: 370000
+a = 42
+d = 370000
+(d < a) = 0
+(d > a) = 1
+(d == d) = 1
+(d != a) = 1
+(d <= a) = 0
+(d >= a) = 1
+(x << y) = 1234567800000, x: 12345678, y: 5
+(x >>= y) = 678, x: 678, y: 5
+(x >= y) = 1, x: 678, y: 5
+x= 67800000, y= 5000000000000
+(x >= y) = 0, x: 67800000, y: 5000000000000
+[0;31m❌ Output does NOT match reference![0m
+[1;33m--- Reference Output ---[0m
+a = 42
+b = 21
+c = 0
+d = 1337
+e = 1337
+a + b = 63
+a + c = 42
+(c += a) = 42
+b = 21
+++b = 22
+b++ = 22
+(b << 10) + 42 = 230000000042
+(d <<= 4) = 13370000, d: 13370000
+(d >>= 2) = 133700, d: 133700
+a = 42
+d = 133700
+(d < a) = 0
+(d > a) = 1
+(d == d) = 1
+(d != a) = 1
+(d <= a) = 0
+(d >= a) = 1
+(x << y) = 1234567800000, x: 12345678, y: 5
+(x >>= y) = 123, x: 123, y: 5
+(x >= y) = 1, x: 123, y: 5
+x= 12300000, y= 5000000000000
+(x >= y) = 0, x: 12300000, y: 5000000000000
+[1;33m--- Your Output ---[0m
+a = 42
+b = 21
+c = 0
+d = 1337
+e = 1337
+a + b = 63
+a + c = 42
+(c += a) = 42
+b = 21
+++b = 22
+b++ = 22
+(b << 10) + 42 = 230000000042
+(d <<= 4) = 13370000, d: 13370000
+(d >>= 2) = 370000, d: 370000
+a = 42
+d = 370000
+(d < a) = 0
+(d > a) = 1
+(d == d) = 1
+(d != a) = 1
+(d <= a) = 0
+(d >= a) = 1
+(x << y) = 1234567800000, x: 12345678, y: 5
+(x >>= y) = 678, x: 678, y: 5
+(x >= y) = 1, x: 678, y: 5
+x= 67800000, y= 5000000000000
+(x >= y) = 0, x: 67800000, y: 5000000000000
+[1;33m--- Diff ---[0m
+14c14
+< (d >>= 2) = 133700, d: 133700
+---
+> (d >>= 2) = 370000, d: 370000
+16c16
+< d = 133700
+---
+> d = 370000
+24,27c24,27
+< (x >>= y) = 123, x: 123, y: 5
+< (x >= y) = 1, x: 123, y: 5
+< x= 12300000, y= 5000000000000
+< (x >= y) = 0, x: 12300000, y: 5000000000000
+---
+> (x >>= y) = 678, x: 678, y: 5
+> (x >= y) = 1, x: 678, y: 5
+> x= 67800000, y= 5000000000000
+> (x >= y) = 0, x: 67800000, y: 5000000000000
+[0;34m🚀 Executing valgrind analysis...[0m
+Command: valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes -s ./user_bigint
+
+./tester.sh: line 85: valgrind: command not found
+
+[0;34m🏁 Valgrind analysis completed with exit code: 127[0m
+
+=======================================
+[1;33m📊 DETAILED ANALYSIS RESULTS:[0m
+=======================================
+Memory Leaks: [0;32mPASSED - No memory leaks detected[0m
+Valgrind Errors: [0;32mPASSED - No valgrind errors[0m
+
+=======================================
+OVERALL RESULT: [0;31m❌ ISSUES DETECTED![0m
+[1;33mSummary of errors:[0m
+[0;31m  → Output does not match reference solution.[0m
+=======================================
+Press enter to continue...
