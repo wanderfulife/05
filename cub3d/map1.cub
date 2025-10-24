@@ -1,0 +1,16 @@
+# Simple rectangular room map
+NO ./textures/north_wall.xpm
+SO ./textures/south_wall.xpm
+WE ./textures/west_wall.xpm
+EA ./textures/east_wall.xpm
+F 220,100,50
+C 100,150,200
+
+1111111111
+1000000001
+1000000001
+10N0000001
+1000000001
+1000000001
+1000000001
+1111111111
